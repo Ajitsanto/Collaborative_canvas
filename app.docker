@@ -1,0 +1,27 @@
+FROM ubuntu:focal
+
+ 
+
+WORKDIR /collabrative_drawing
+
+
+
+RUN apt update
+
+RUN apt -y upgrade
+
+RUN  apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates wget
+
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
+
+RUN  apt -y install nodejs
+
+RUN npm install -g nodemon
+
+#Application Port
+
+EXPOSE 3000 3000
+
+
+
+CMD ["nodemon", "server.js"]
